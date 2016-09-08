@@ -1,5 +1,5 @@
-﻿
-using System;
+﻿using System;
+
 namespace CodeLou.CSharp.Week2.Challenge
 {
     class Program
@@ -20,37 +20,63 @@ namespace CodeLou.CSharp.Week2.Challenge
             Console.ReadLine();
 
             Console.WriteLine("This is the launch application for the first human mission to Mars.");
-            Console.WriteLine("Enter the number of seconds would you like to count down from: ");
+        
+            while (true)
+            {
+                Console.Write("Enter the number of seconds you would like to count down from or type 'quit': ");
+                var entry = Console.ReadLine();
 
-            // Task 3:
-            // Capture the number of seconds that the user would like to count down before liftoff.
-            // Hint: You should use another method of the Console class and store the output into a
-            //       variable to use later.
+                if (entry == "quit")
+                {
 
-var entry = Console.ReadLine();
+                    break;
 
-            // Task 4:
-            // Write a condition to test whether the number that they entered is less than or equal to zero.
-            // Call the IsLessThanOrEqualToZero() method below, passing the user's number as a parameter.
-            // If the result is true, write "Please enter a positive number." to the console.
-            // Hint: The input that you captured is currently a string type. You will have to "parse" it
-            //       as a different type in order to pass it to the IsLessThanOrEqualToZero function.
+                }
+                try
+                {
 
-var seconds = int.Parse(entry);
-if(IsLessThanOrEqualToZero(seconds)){
-    
-    Console.WriteLine("Please enter a positive number");
-    
-    
-}else{
-    var times = seconds;
- while(times <= seconds) {
-     Console.WriteLine(times);
-     times -= 1;
-     
- }   
-    Console.WriteLine("LIFTOFF!");
-}
+                    // Task 3:
+                    // Capture the number of seconds that the user would like to count down before liftoff.
+                    // Hint: You should use another method of the Console class and store the output into a
+                    //       variable to use later.
+                    var minutes = int.Parse(entry);
+
+                    // Task 4:
+                    // Write a condition to test whether the number that they entered is less than or equal to zero.
+                    // Call the IsLessThanOrEqualToZero() method below, passing the user's number as a parameter.
+                    // If the result is true, write "Please enter a positive number." to the console.
+                    // Hint: The input that you captured is currently a string type. You will have to "parse" it
+                    //       as a different type in order to pass it to the IsLessThanOrEqualToZero function.
+                   if (IsLessThanOrEqualToZero(minutes))
+                    {
+                        Console.WriteLine("please enter a postive number");
+                        continue;
+
+
+                    }
+
+                    while(minutes >= 0)
+                    {
+                        Console.WriteLine(minutes);
+                        minutes--;
+
+
+
+
+                    }
+                   
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("please enter a postive number");
+                    continue;
+
+                }
+                Console.WriteLine("LIFTOFF!");
+                break;
+            }
+           
 
             // Task 5:
             // Add an "else" block to the condition from Task 4. This should be run in the case that the
