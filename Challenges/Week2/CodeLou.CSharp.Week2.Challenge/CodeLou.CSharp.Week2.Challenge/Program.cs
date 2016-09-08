@@ -59,13 +59,10 @@ namespace CodeLou.CSharp.Week2.Challenge
                     {
                         Console.WriteLine(minutes);
                         minutes--;
-
-
-
+                 
 
                     }
                    
-
                 }
                 catch (FormatException)
                 {
